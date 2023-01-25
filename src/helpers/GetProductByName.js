@@ -14,6 +14,10 @@ export const GetProductByName = (name = "") => {
   }
 
   return data.filter((product) => {
-    return product.model.toLocaleLowerCase().includes(name);
+    // return product.model.toLocaleLowerCase().includes(name);
+    return (
+      product.model.toLowerCase().includes(name.toLowerCase()) ||
+      product.brand.toLowerCase().includes(name.toLowerCase())
+    );
   });
 };

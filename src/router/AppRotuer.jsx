@@ -11,7 +11,7 @@ export const AppRotuer = () => {
       <Routes>
         <Route path="/" element={<Plp />} />
         <Route path="/:id" element={<Pdp />} />
-        <Route path="/search" element={<SearchPage />} />
+        <Route path="/" element={<SearchPage />} />
       </Routes>
     </>
   );

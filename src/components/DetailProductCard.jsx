@@ -14,9 +14,10 @@ import {
 } from "@nextui-org/react";
 
 import { getDetailsProducts } from "../api/getDetailsProducts";
+import { addProductCart } from "../api/addProductCart";
+import { AddCartProduct } from "./AddCartProduct";
 
 export const DetailProductCard = () => {
-
   const { id } = useParams();
   const [data, setData] = useState([]);
 
@@ -95,22 +96,31 @@ export const DetailProductCard = () => {
                     <Grid xs={6} justify="flex-start">
                       <Radio.Group label="Color options:">
                         {product.colors.map((color) => (
-                          <Radio value={color}>{color}</Radio>
+                          <Radio key={color} value={color}>
+                            {color}
+                          </Radio>
                         ))}
                       </Radio.Group>
                     </Grid>
                     <Grid xs={6} justify="flex-start">
                       <Radio.Group label="Memory options:" defaultValue="A">
                         {product.internalMemory.map((internalMemory) => (
-                          <Radio value={internalMemory}>{internalMemory}</Radio>
+                          <Radio key={internalMemory} value={internalMemory}>
+                            {internalMemory}
+                          </Radio>
                         ))}
                       </Radio.Group>
                     </Grid>
                   </Row>
                   <Spacer y={1} />
-                  <Button shadow css={{ width: "90%", margin: "0 auto" }}>
+                  <Button
+                    // onPress={() => addProductCart()}
+                    shadow
+                    css={{ width: "90%", margin: "0 auto" }}
+                  >
                     Add cart
                   </Button>
+                  <AddCartProduct/>
                 </Grid>
               </Row>
             </Card.Body>
