@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import {
-  Button,
   Card,
   Container,
   Grid,
   Image,
   Loading,
-  Radio,
   Row,
   Spacer,
   Text,
 } from "@nextui-org/react";
 
 import { getDetailsProducts } from "../api/getDetailsProducts";
-import { addProductCart } from "../api/addProductCart";
 import { AddCartProduct } from "./AddCartProduct";
 
 export const DetailProductCard = () => {
-  const { id } = useParams();
   const [data, setData] = useState([]);
+  
+  const { id } = useParams();
 
   useEffect(() => {
     getDetailsProducts(id).then((data) => {
       setData(data);
     });
   }, [id]);
+  
 
   try {
     const product = data;
@@ -49,7 +48,7 @@ export const DetailProductCard = () => {
           gap={2}
           justify="center"
           align="center"
-          css={{ width: "80%", margin: "0 auto" }}
+          css={{ width: "100%", margin: "0 auto" }}
         >
           <Card isHoverable>
             <Card.Body>
@@ -92,35 +91,7 @@ export const DetailProductCard = () => {
                     Dimentions: {product.dimentions}
                   </Text>
                   <Text css={{ margin: "0" }}>Weight: {product.weight}g</Text>
-                  <Row>
-                    <Grid xs={6} justify="flex-start">
-                      <Radio.Group label="Color options:">
-                        {product.colors.map((color) => (
-                          <Radio key={color} value={color}>
-                            {color}
-                          </Radio>
-                        ))}
-                      </Radio.Group>
-                    </Grid>
-                    <Grid xs={6} justify="flex-start">
-                      <Radio.Group label="Memory options:" defaultValue="A">
-                        {product.internalMemory.map((internalMemory) => (
-                          <Radio key={internalMemory} value={internalMemory}>
-                            {internalMemory}
-                          </Radio>
-                        ))}
-                      </Radio.Group>
-                    </Grid>
-                  </Row>
-                  <Spacer y={1} />
-                  <Button
-                    // onPress={() => addProductCart()}
-                    shadow
-                    css={{ width: "90%", margin: "0 auto" }}
-                  >
-                    Add cart
-                  </Button>
-                  <AddCartProduct/>
+                  <AddCartProduct product={product} />
                 </Grid>
               </Row>
             </Card.Body>

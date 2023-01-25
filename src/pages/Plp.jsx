@@ -14,8 +14,6 @@ export const Plp = () => {
     });
   }, []);
 
-  console.log(data);
-
   return (
     <Container fluid>
       <Row justify="left" align="center">
