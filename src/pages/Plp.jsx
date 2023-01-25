@@ -5,6 +5,9 @@ import { SearchComponent } from "../components/SearchComponent";
 import { useEffect, useState } from "react";
 import { getProducts } from "../api/getProducts";
 
+import brandLogo from "../static/brandLogo.png";
+import { Link } from "react-router-dom";
+
 export const Plp = () => {
   const [data, setData] = useState([]);
 
@@ -17,7 +20,9 @@ export const Plp = () => {
   return (
     <Container fluid>
       <Row justify="left" align="center">
-        <h1>Phone Solutions</h1>
+        <Link to={"/"}>
+          <img className="logo" src={brandLogo} alt="brand logo" />
+        </Link>
       </Row>
       <Grid.Container gap={2} justify="space-evenly" align="center">
         <Row justify="flex-end">
