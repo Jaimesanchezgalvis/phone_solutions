@@ -31,7 +31,7 @@ export const DetailProductCard = () => {
     return (
       <>
         <Row gap={2} align="center" justify="flex-start">
-          <Link to={"/"}>
+          <Link to={"/phone_solutions"}>
             <Text
               css={{
                 color: "#18738f",
@@ -60,7 +60,6 @@ export const DetailProductCard = () => {
                       height={350}
                       showSkeleton
                     />
-                    
                   </Grid>
                   <Grid sm={6} justify="flex-start" direction="column">
                     <Text
