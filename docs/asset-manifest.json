@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/phone_solutions/static/css/main.59f24571.css",
-    "main.js": "/phone_solutions/static/js/main.60cbe165.js",
+    "main.js": "/phone_solutions/static/js/main.de8c17fa.js",
     "static/media/brandLogo.png": "/phone_solutions/static/media/brandLogo.4379266c11f2e3373fda.png",
     "static/media/cart.png": "/phone_solutions/static/media/cart.8abbc874c88e7daa063b.png",
     "index.html": "/phone_solutions/index.html",
     "main.59f24571.css.map": "/phone_solutions/static/css/main.59f24571.css.map",
-    "main.60cbe165.js.map": "/phone_solutions/static/js/main.60cbe165.js.map"
+    "main.de8c17fa.js.map": "/phone_solutions/static/js/main.de8c17fa.js.map"
   },
   "entrypoints": [
     "static/css/main.59f24571.css",
-    "static/js/main.60cbe165.js"
+    "static/js/main.de8c17fa.js"
   ]
 }
