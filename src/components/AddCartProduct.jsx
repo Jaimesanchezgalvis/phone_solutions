@@ -19,7 +19,6 @@ export const AddCartProduct = ({ product }) => {
 
   const [checkedColor, setCheckedColor] = useState("");
   const [checkedStorage, setCheckedStorage] = useState("");
-  const [purchase, setPurchase] = useState("");
 
   const { id } = productData;
 
@@ -37,20 +36,17 @@ export const AddCartProduct = ({ product }) => {
         text: "Please select the color!",
       });
     } else if (checkedStorage === "") {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Please select a storage!",
-        });
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please select a storage!",
+      });
     } else {
       addProductCart(body).then((data) => {
-        setPurchase(data);
         localStorage.setItem("count", data);
       });
     }
   };
-
-  console.log(purchase);
 
   try {
     return (

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles/components/productCard.scss";
 
 export const ProductCard = ({ id, model, imgUrl, brand, price }) => {
+  
   return (
     <Grid md={3}>
       <Card isPressable isHoverable>

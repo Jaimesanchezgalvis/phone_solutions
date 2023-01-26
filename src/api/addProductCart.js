@@ -3,13 +3,17 @@ export const addProductCart = async (body) => {
 
   const response = await fetch(url, {
     method: "POST",
+    credentials: "omit",
+    redirect: "follow",
     headers: {
       "Content-Type": "application/json",
+      Cookie: "session_id",
     },
-
     body: JSON.stringify(body),
   });
 
+  
   const { count } = await response.json();
+  console.log(count);
   return count;
 };
