@@ -1,17 +1,14 @@
 import {
-  Avatar,
-  Badge,
   Button,
   Container,
   Grid,
   Loading,
   Radio,
   Row,
-  StyledButton,
 } from "@nextui-org/react";
 import React, { useEffect, useState } from "react";
 import { addProductCart } from "../api/addProductCart";
-import cart from "../static/cart.png";
+import Swal from "sweetalert2";
 
 export const AddCartProduct = ({ product }) => {
   const [productData, setProductData] = useState({});
@@ -34,12 +31,21 @@ export const AddCartProduct = ({ product }) => {
     };
 
     if (checkedColor === "") {
-      alert("Please select a color");
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Please select the color!",
+      });
     } else if (checkedStorage === "") {
-      alert("Please select a storage");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Please select a storage!",
+        });
     } else {
       addProductCart(body).then((data) => {
         setPurchase(data);
+        localStorage.setItem("count", data);
       });
     }
   };
@@ -53,31 +59,11 @@ export const AddCartProduct = ({ product }) => {
         justify="center"
         alignItems="center"
         alignContent="center"
+        display="flex"
         css={{
-          width: "90%",
+          padding: "0",
         }}
       >
-        <Row justify="flex-end"
-        css={{
-          position: "absolute",
-          top: "0",
-          right: "0",
-        }}>
-          <Grid justify="flex-end">
-            <Grid.Container alignItems="center" gap={2}>
-              <Grid justify="flex-end">
-                <Badge
-                  color="error"
-                  content={purchase}
-                  shape="circle"
-                  size="md"
-                >
-                  <Avatar size="md" src={cart} />
-                </Badge>
-              </Grid>
-            </Grid.Container>
-          </Grid>
-        </Row>
         <Row>
           <Grid xs={6} justify="flex-start">
             <Radio.Group

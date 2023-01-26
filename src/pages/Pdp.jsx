@@ -1,21 +1,13 @@
-import { Link } from "react-router-dom";
 import { DetailProductCard } from "../components/DetailProductCard";
-import { Button, Container, Spacer } from "@nextui-org/react";
+import { Container, Spacer } from "@nextui-org/react";
+
+import HeaderComponent from "../components/HeaderComponent";
 
 export const Pdp = () => {
   return (
-    <Container display="flex" justify="flex-end" css={{ width: "90%" }}>
+    <Container display="flex" justify="center" css={{ width: "90%" }}>
+      <HeaderComponent />
       <DetailProductCard />
-      <Button
-        size="sm"
-        shadow
-        color="gradient"
-        as={Link}
-        to="/"
-        css={{ width: "10%" }}
-      >
-        Back
-      </Button>
       <Spacer y={3} />
     </Container>
   );
