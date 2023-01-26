@@ -21,14 +21,14 @@ export const SearchComponent = () => {
   const onSearchSubmit = (e) => {
     e.preventDefault();
     if (searchText.trim().length <= 1) {
-      navigate("/");
+      navigate("/phone_solutions");
     }
-    navigate(`/?q=${searchText}`);
+    navigate(`/phone_solutions/?q=${searchText}`);
   };
 
   const clearSearch = (e) => {
     e.preventDefault();
-    navigate("/");
+    navigate("/phone_solutions");
   };
 
   return (

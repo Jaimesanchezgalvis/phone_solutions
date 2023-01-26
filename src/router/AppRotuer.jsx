@@ -9,9 +9,9 @@ export const AppRotuer = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Plp />} />
-        <Route path="/:id" element={<Pdp />} />
-        <Route path="/" element={<SearchPage />} />
+        <Route path="/phone_solutions" element={<Plp />} />
+        <Route path="/phone_solutions/:id" element={<Pdp />} />
+        <Route path="/phone_solutions" element={<SearchPage />} />
       </Routes>
     </>
   );

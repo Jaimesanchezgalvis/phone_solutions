@@ -30,7 +30,7 @@ export const Plp = () => {
           <SearchComponent />
         </Row>
         <Row gap={2} align="center" justify="flex-start">
-          <Link to={"/"}>
+          <Link to={"/phone_solutions"}>
             <Text
               css={{
                 color: "#18738f",

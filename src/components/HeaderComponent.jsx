@@ -8,11 +8,9 @@ import "../styles/components/headerComponete.scss";
 
 const HeaderComponent = () => {
   return (
-    <Container
-
-    >
+    <Container>
       <Row justify="space-between" align="center">
-        <Link to={"/"}>
+        <Link to={"/phone_solutions"}>
           <img className="logo" src={brandLogo} alt="brand logo" />
         </Link>
         <Grid justify="flex-end">
