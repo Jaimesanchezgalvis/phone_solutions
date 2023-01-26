@@ -2,8 +2,8 @@
   "files": {
     "main.css": "/static/css/main.59f24571.css",
     "main.js": "/static/js/main.47453f64.js",
-    "static/media/brandLogo.png": "./static/media/brandLogo.4379266c11f2e3373fda.png",
-    "static/media/cart.png": "./static/media/cart.8abbc874c88e7daa063b.png",
+    "static/media/brandLogo.png": "phone_solutions/static/media/brandLogo.4379266c11f2e3373fda.png",
+    "static/media/cart.png": "phone_solutions/static/media/cart.8abbc874c88e7daa063b.png",
     "index.html": "/index.html",
     "main.59f24571.css.map": "/static/css/main.59f24571.css.map",
     "main.47453f64.js.map": "/static/js/main.47453f64.js.map"
