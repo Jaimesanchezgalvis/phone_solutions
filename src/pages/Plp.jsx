@@ -1,5 +1,5 @@
 import "../styles/pages/plpPage.scss";
-import { Container, Row, Grid, Text, Loading } from "@nextui-org/react";
+import { Container, Row, Grid, Text, Loading, Spacer } from "@nextui-org/react";
 import { ProductCard } from "../components/ProductCard";
 import { SearchComponent } from "../components/SearchComponent";
 import { useEffect, useState } from "react";
@@ -17,10 +17,6 @@ export const Plp = () => {
     });
   }, []);
 
-  if (data.length === 0) {
-    return <Loading />;
-  }
-
   return (
     <Container
       fluid
@@ -29,6 +25,7 @@ export const Plp = () => {
       }}
     >
       <HeaderComponent />
+      <Spacer y={1} />
       <Grid.Container gap={2} justify="space-evenly" align="center">
         <Row justify="flex-end">
           <SearchComponent />
@@ -45,9 +42,13 @@ export const Plp = () => {
             </Text>
           </Link>
         </Row>
-        {data.map((product) => {
-          return <ProductCard key={product.id} {...product} />;
-        })}
+        {data.length > 0 ? (
+          data.map((product) => {
+            return <ProductCard key={product.id} {...product} />;
+          })
+        ) : (
+          <Loading />
+        )}
       </Grid.Container>
     </Container>
   );

@@ -4,7 +4,5 @@ export const GetProductById = (id) => {
 
   const product = data.find((product) => product.id === id);
 
-  console.log(product);
-
   return product;
 };

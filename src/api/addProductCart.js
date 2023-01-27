@@ -12,8 +12,7 @@ export const addProductCart = async (body) => {
     body: JSON.stringify(body),
   });
 
-  
   const { count } = await response.json();
-  console.log(count);
+
   return count;
 };

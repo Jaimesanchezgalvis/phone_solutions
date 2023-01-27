@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import {
   Button,
   Container,
@@ -6,19 +7,17 @@ import {
   Radio,
   Row,
 } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
-import { addProductCart } from "../api/addProductCart";
 import Swal from "sweetalert2";
+import { addProductCart } from "../api/addProductCart";
 
 export const AddCartProduct = ({ product }) => {
   const [productData, setProductData] = useState({});
+  const [checkedColor, setCheckedColor] = useState("");
+  const [checkedStorage, setCheckedStorage] = useState("");
 
   useEffect(() => {
     setProductData(product);
   }, [product]);
-
-  const [checkedColor, setCheckedColor] = useState("");
-  const [checkedStorage, setCheckedStorage] = useState("");
 
   const { id } = productData;
 
@@ -45,6 +44,13 @@ export const AddCartProduct = ({ product }) => {
       addProductCart(body).then((data) => {
         localStorage.setItem("count", data);
       });
+      Swal.fire({
+        icon: "success",
+        title: "Added to cart!",
+        showConfirmButton: false,
+        timer: 1000,
+      });
+
     }
   };
 

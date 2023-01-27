@@ -9,8 +9,7 @@ export const getProducts = async () => {
   let data = localStorage.getItem("data");
   data = JSON.parse(data);
 
-  console.log("Api", data);
-
+  // if the user is inactive for 1 hour, the data will be deleted from the local storage
   setTimeout(() => {
     localStorage.removeItem("data");
     Swal.fire(
