@@ -54,7 +54,11 @@ export const DetailProductCard = () => {
             css={{ margin: "0 auto" }}
           >
             <Card isHoverable>
-              <Card.Body>
+              <Card.Body
+                css={{
+                  paddingLeft: "0",
+                }}
+              >
                 <Row align="center" justify="center" wrap="wrap">
                   <Grid sm={6} justify="flex-start">
                     <Image
@@ -119,7 +123,8 @@ export const DetailProductCard = () => {
                     </Row>
                     <Row>
                       <Text b css={{ margin: "0" }}>
-                        Display Resolution;&nbsp;
+                        Display:&nbsp;
+                        <br />
                       </Text>
                       <Text css={{ margin: "0" }}>
                         {product.displayResolution}
@@ -155,6 +160,10 @@ export const DetailProductCard = () => {
                       </Text>
                       <Text css={{ margin: "0" }}>{product.weight}g</Text>
                     </Row>
+                    <Spacer y={1} />
+
+                    <hr />
+
                     <AddCartProduct product={product} />
                   </Grid>
                 </Row>
