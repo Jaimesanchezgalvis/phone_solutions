@@ -1,15 +1,14 @@
-import { Card, Grid, Text, Image, Badge, Row } from "@nextui-org/react";
+import { Card, Grid, Text, Image, Badge, Row, Spacer } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
 import "../styles/components/productCard.scss";
 
 export const ProductCard = ({ id, model, imgUrl, brand, price }) => {
-  
   return (
     <Grid md={3}>
-      <Card isPressable isHoverable>
+      <Card isPressable isHoverable css={{ padding: "0" }}>
         <Link to={id}>
-          <Card.Body>
+          <Card.Header>
             <Text
               css={{
                 color: "rgb(80 84 86)",
@@ -18,8 +17,14 @@ export const ProductCard = ({ id, model, imgUrl, brand, price }) => {
             >
               Model: {model}
             </Text>
-            <Image src={imgUrl} alt="Default Image" objectFit="cover" />
+          </Card.Header>
+          <Card.Body>
+            <Row justify="center">
+              <Image src={imgUrl} alt="Product Image" objectFit="cover" />
+            </Row>
             <hr />
+          </Card.Body>
+          <Card.Footer>
             <Row align="center" justify="center">
               <Grid>
                 <Badge variant="bordered"> Brand: {brand}</Badge>
@@ -30,7 +35,7 @@ export const ProductCard = ({ id, model, imgUrl, brand, price }) => {
                 </Badge>
               </Grid>
             </Row>
-          </Card.Body>
+          </Card.Footer>
         </Link>
       </Card>
     </Grid>

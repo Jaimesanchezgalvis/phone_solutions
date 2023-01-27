@@ -155,7 +155,6 @@ export const DetailProductCard = () => {
                       </Text>
                       <Text css={{ margin: "0" }}>{product.weight}g</Text>
                     </Row>
-
                     <AddCartProduct product={product} />
                   </Grid>
                 </Row>

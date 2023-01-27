@@ -50,7 +50,6 @@ export const AddCartProduct = ({ product }) => {
         showConfirmButton: false,
         timer: 1000,
       });
-
     }
   };
 
