@@ -71,6 +71,9 @@ export const AddCartProduct = ({ product }) => {
               label="Color options:"
               isRequired
               onChange={setCheckedColor}
+              defaultValue={
+                productData.colors.length === 1 ? productData.colors[0] : ""
+              }
             >
               {productData?.colors.map((color) => (
                 <Radio key={color} value={color}>
@@ -82,9 +85,13 @@ export const AddCartProduct = ({ product }) => {
           <Grid xs={6} justify="flex-start">
             <Radio.Group
               label="Memory options:"
-              defaultValue="A"
               isRequired
               onChange={setCheckedStorage}
+              defaultValue={
+                productData.internalMemory.length === 1
+                  ? productData.internalMemory[0]
+                  : ""
+              }
             >
               {productData.internalMemory.map((internalMemory) => (
                 <Radio key={internalMemory} value={internalMemory} isRequired>
