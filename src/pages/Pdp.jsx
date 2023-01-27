@@ -5,7 +5,7 @@ import HeaderComponent from "../components/HeaderComponent";
 
 export const Pdp = () => {
   return (
-    <Container display="flex" justify="center" css={{ width: "90%" }}>
+    <Container display="flex" justify="center" css={{ width: "90%", padding:"0" }}>
       <HeaderComponent />
       <DetailProductCard />
       <Spacer y={3} />
