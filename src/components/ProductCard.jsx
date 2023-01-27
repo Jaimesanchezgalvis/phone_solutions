@@ -1,4 +1,4 @@
-import { Card, Grid, Text, Image, Badge, Row, Spacer } from "@nextui-org/react";
+import { Card, Grid, Text, Image, Badge, Row } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
 import "../styles/components/productCard.scss";
@@ -6,7 +6,14 @@ import "../styles/components/productCard.scss";
 export const ProductCard = ({ id, model, imgUrl, brand, price }) => {
   return (
     <Grid md={3}>
-      <Card isPressable isHoverable css={{ padding: "0" }}>
+      <Card
+        isPressable
+        isHoverable
+        css={{
+          w: "100%",
+          minWidth: "300px",
+        }}
+      >
         <Link to={id}>
           <Card.Header>
             <Text
@@ -18,13 +25,21 @@ export const ProductCard = ({ id, model, imgUrl, brand, price }) => {
               Model: {model}
             </Text>
           </Card.Header>
-          <Card.Body>
+          <Card.Body
+            css={{
+              paddingLeft: "0",
+            }}
+          >
             <Row justify="center">
               <Image src={imgUrl} alt="Product Image" objectFit="cover" />
             </Row>
             <hr />
           </Card.Body>
-          <Card.Footer>
+          <Card.Footer
+            css={{
+              paddingLeft: "0",
+            }}
+          >
             <Row align="center" justify="center">
               <Grid>
                 <Badge variant="bordered"> Brand: {brand}</Badge>

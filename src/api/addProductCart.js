@@ -7,7 +7,7 @@ export const addProductCart = async (body) => {
     redirect: "follow",
     headers: {
       "Content-Type": "application/json",
-      Cookie: "session_id",
+      Cookie: "SameSite=None",
     },
     body: JSON.stringify(body),
   });
