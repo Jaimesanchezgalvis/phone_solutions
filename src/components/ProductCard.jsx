@@ -11,7 +11,7 @@ export const ProductCard = ({ id, model, imgUrl, brand, price }) => {
         isHoverable
         css={{
           w: "100%",
-          minWidth: "300px",
+          minWidth: "278px",
         }}
       >
         <Link to={id}>
