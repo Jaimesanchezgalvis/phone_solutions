@@ -37,7 +37,6 @@ export const AddCartProduct = ({ product }) => {
       colorCode: checkedColor,
       storageCode: checkedStorage,
     };
-    console.log(body);
 
     if (checkedColor === "") {
       Swal.fire({
