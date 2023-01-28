@@ -12,12 +12,22 @@ import { addProductCart } from "../api/addProductCart";
 
 export const AddCartProduct = ({ product }) => {
   const [productData, setProductData] = useState({});
-  const [checkedColor, setCheckedColor] = useState("");
+  const [checkedColor, setCheckedColor] = useState();
   const [checkedStorage, setCheckedStorage] = useState("");
 
+  const colorDefault =
+    productData.colors?.length === 1 ? productData?.colors[0] : "";
+  const storageDefault =
+    productData.internalMemory?.length === 1
+      ? productData.internalMemory[0]
+      : "";
+
   useEffect(() => {
+    setCheckedColor(colorDefault);
+    setCheckedStorage(storageDefault);
     setProductData(product);
-  }, [product]);
+  }, [colorDefault, storageDefault, product]);
+
 
   const { id } = productData;
 
@@ -27,6 +37,7 @@ export const AddCartProduct = ({ product }) => {
       colorCode: checkedColor,
       storageCode: checkedStorage,
     };
+    console.log(body);
 
     if (checkedColor === "") {
       Swal.fire({
@@ -71,9 +82,7 @@ export const AddCartProduct = ({ product }) => {
               label="Color options:"
               isRequired
               onChange={setCheckedColor}
-              defaultValue={
-                productData.colors.length === 1 ? productData.colors[0] : ""
-              }
+              defaultValue={colorDefault}
             >
               {productData?.colors.map((color) => (
                 <Radio key={color} value={color}>
@@ -87,11 +96,7 @@ export const AddCartProduct = ({ product }) => {
               label="Memory options:"
               isRequired
               onChange={setCheckedStorage}
-              defaultValue={
-                productData.internalMemory.length === 1
-                  ? productData.internalMemory[0]
-                  : ""
-              }
+              defaultValue={storageDefault}
             >
               {productData.internalMemory.map((internalMemory) => (
                 <Radio key={internalMemory} value={internalMemory} isRequired>
