@@ -7,13 +7,13 @@ import { NotFound404 } from "../pages/NotFound404";
 
 export const AppRotuer = () => {
   return (
-    <HashRouter>
-      <Routes>
+    <Routes>
+      <HashRouter>
         <Route path="/phone_solutions" element={<Plp />} />
         <Route path="/phone_solutions/:id" element={<Pdp />} />
         <Route path="/phone_solutions" element={<SearchPage />} />
         <Route path="/phone_solutions/*" element={<NotFound404 />} />
-      </Routes>
-    </HashRouter>
+      </HashRouter>
+    </Routes>
   );
 };
