@@ -1,4 +1,4 @@
-import { HashRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import { Plp } from "../pages/Plp";
 import { Pdp } from "../pages/Pdp";
@@ -8,12 +8,10 @@ import { NotFound404 } from "../pages/NotFound404";
 export const AppRotuer = () => {
   return (
     <Routes>
-      <HashRouter>
-        <Route path="/phone_solutions" element={<Plp />} />
+        <Route path="/phone_solutions/" element={<Plp />} />
         <Route path="/phone_solutions/:id" element={<Pdp />} />
         <Route path="/phone_solutions" element={<SearchPage />} />
         <Route path="/phone_solutions/*" element={<NotFound404 />} />
-      </HashRouter>
     </Routes>
   );
 };
