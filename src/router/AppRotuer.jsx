@@ -10,7 +10,7 @@ export const AppRotuer = () => {
     <>
       <Routes>
         <Route path="/phone_solutions" element={<Plp />} />
-        <Route path="/phone_solutions/:id" element={<Pdp />} />
+        <Route path="/phone_solutions/#/:id" element={<Pdp />} />
         <Route path="/phone_solutions" element={<SearchPage />} />
         <Route path="/phone_solutions/*" element={<NotFound404 />} />
       </Routes>
