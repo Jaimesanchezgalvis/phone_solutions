@@ -34,7 +34,7 @@ export const Plp = () => {
           <BrandSearch data={originalData} setData={setData} />
         </Row>
         <Row gap={2} align="center" justify="flex-start">
-          <Link to={"/phone_solutions"}>
+          <Link to={"/"}>
             <Text
               css={{
                 color: "#18738f",
