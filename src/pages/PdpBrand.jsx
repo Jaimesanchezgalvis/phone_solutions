@@ -1,9 +1,9 @@
 import { Container, Spacer } from "@nextui-org/react";
-import React from "react";
-import HeaderComponent from "../components/HeaderComponent";
-import { DetailProductCard } from "../components/DetailProductCard";
 
-export const Pdp = () => {
+import HeaderComponent from "../components/HeaderComponent";
+import { ProductCard } from "../components/ProductCard";
+
+export const PdpBrand = () => {
   return (
     <Container
       display="flex"
@@ -11,7 +11,7 @@ export const Pdp = () => {
       css={{ width: "90%", padding: "0" }}
     >
       <HeaderComponent />
-      <DetailProductCard />
+      <ProductCard />
       <Spacer y={3} />
     </Container>
   );

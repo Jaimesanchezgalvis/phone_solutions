@@ -9,7 +9,7 @@ const HeaderComponent = () => {
   return (
     <Container css={{ margin: "0 auto", padding: "0" }}>
       <Row justify="space-between" align="center">
-        <Link to={"/phone_solutions"}>
+        <Link to={"/"}>
           <img className="logo" src={brandLogo} alt="brand logo" />
         </Link>
         <Grid justify="flex-end">

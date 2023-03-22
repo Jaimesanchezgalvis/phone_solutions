@@ -1,19 +1,21 @@
 import "../styles/pages/plpPage.scss";
 import { Container, Row, Grid, Text, Loading, Spacer } from "@nextui-org/react";
-import { ProductCard } from "../components/ProductCard";
-import { SearchComponent } from "../components/SearchComponent";
 import { useEffect, useState } from "react";
 import { getProducts } from "../api/getProducts";
 
 import { Link } from "react-router-dom";
 import HeaderComponent from "../components/HeaderComponent";
+import { ProductBrand } from "../components/ProductBrand";
+import { BrandSearch } from "../components/BrandSearch";
 
 export const Plp = () => {
   const [data, setData] = useState([]);
+  const [originalData, setOriginalData] = useState([]);
 
   useEffect(() => {
     getProducts().then((data) => {
-      setData(data);
+      setData(data.data);
+      setOriginalData(data.data);
     });
   }, []);
 
@@ -29,7 +31,7 @@ export const Plp = () => {
       <Spacer y={1} />
       <Grid.Container gap={2} justify="space-evenly" align="center">
         <Row justify="flex-end">
-          <SearchComponent />
+          <BrandSearch data={originalData} setData={setData} />
         </Row>
         <Row gap={2} align="center" justify="flex-start">
           <Link to={"/phone_solutions"}>
@@ -39,13 +41,13 @@ export const Plp = () => {
               }}
               weight="bold"
             >
-              List of products:
+              List of Brands:
             </Text>
           </Link>
         </Row>
         {data.length > 0 ? (
-          data.map((product) => {
-            return <ProductCard key={product.id} {...product} />;
+          data.map((product, index) => {
+            return <ProductBrand key={index} {...product} />;
           })
         ) : (
           <Loading />
