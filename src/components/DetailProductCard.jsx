@@ -11,20 +11,19 @@ import {
   Text,
 } from "@nextui-org/react";
 
-import { getDetailsProducts } from "../api/getDetailsProducts";
-import { AddCartProduct } from "./AddCartProduct";
+import { getDetailProducts } from "../api/getDetailProducts";
 import "../styles/components/detailproductcard.scss";
 
 export const DetailProductCard = () => {
   const [data, setData] = useState([]);
 
-  const { id } = useParams();
+  const { slug } = useParams();
 
   useEffect(() => {
-    getDetailsProducts(id).then((data) => {
-      setData(data);
+    getDetailProducts(slug).then((data) => {
+      setData(data.data);
     });
-  }, [id]);
+  }, [slug]);
 
   if (data.length === 0) {
     return <Loading />;
@@ -42,7 +41,7 @@ export const DetailProductCard = () => {
               }}
               weight="bold"
             >
-              List of products/details: {product.model}
+              Details of: {product.phone_name}
             </Text>
           </Link>
         </Row>
@@ -62,7 +61,7 @@ export const DetailProductCard = () => {
                 <Row align="center" justify="center" wrap="wrap">
                   <Grid sm={6} justify="flex-start">
                     <Image
-                      src={product.imgUrl}
+                      src={product.phone_images[0]}
                       alt="Default Image"
                       objectFit="cover"
                       height={350}
@@ -91,30 +90,24 @@ export const DetailProductCard = () => {
                       <Text b css={{ margin: "0" }}>
                         Model:&nbsp;
                       </Text>
-                      <Text css={{ margin: "0" }}>{product.model}</Text>
+                      <Text css={{ margin: "0" }}>{product.phone_name}</Text>
                     </Row>
-
-                    <Row>
-                      <Text b css={{ margin: "0" }}>
-                        Price:&nbsp;
-                      </Text>
-                      <Text css={{ margin: "0" }}>{product.price}€</Text>
-                    </Row>
-
                     <Row>
                       <Text b css={{ margin: "0" }}>
                         Cpu:&nbsp;
                       </Text>
-                      <Text css={{ margin: "0" }}>{product.cpu}</Text>
+                      <Text css={{ margin: "0" }}>
+                        {product.cpu} {product.cpuCores}
+                      </Text>
                     </Row>
-
                     <Row>
                       <Text b css={{ margin: "0" }}>
                         Ram:&nbsp;
                       </Text>
-                      <Text css={{ margin: "0" }}>{product.ram}</Text>
+                      <Text css={{ margin: "0" }}>
+                        {product.specifications[5].specs[1].val[0]}
+                      </Text>
                     </Row>
-
                     <Row>
                       <Text b css={{ margin: "0" }}>
                         Os:&nbsp;
@@ -127,15 +120,16 @@ export const DetailProductCard = () => {
                         <br />
                       </Text>
                       <Text css={{ margin: "0" }}>
-                        {product.displayResolution}
+                        {product.specifications[3].specs[1].val[0]}{" "}
                       </Text>
                     </Row>
-
                     <Row>
                       <Text b css={{ margin: "0" }}>
                         Primary Camera:&nbsp;
                       </Text>
-                      <Text css={{ margin: "0" }}>{product.primaryCamera}</Text>
+                      <Text css={{ margin: "0" }}>
+                        {product.specifications[6].specs[0].val[0]}
+                      </Text>
                     </Row>
                     <Row>
                       <Text b css={{ margin: "0" }}>
@@ -143,28 +137,27 @@ export const DetailProductCard = () => {
                       </Text>
 
                       <Text css={{ margin: "0" }}>
-                        {product.secondaryCmera}
+                        {product.specifications[7].specs[0].val[0]}
                       </Text>
                     </Row>
-
                     <Row>
                       <Text b css={{ margin: "0" }}>
                         Dimentions:&nbsp;
                       </Text>
-                      <Text css={{ margin: "0" }}>{product.dimentions}</Text>
+                      <Text css={{ margin: "0" }}>
+                        {product.specifications[2].specs[0].val[0]}
+                      </Text>
                     </Row>
-
                     <Row>
                       <Text b css={{ margin: "0" }}>
                         Weight:&nbsp;
                       </Text>
-                      <Text css={{ margin: "0" }}>{product.weight}g</Text>
+                      <Text css={{ margin: "0" }}>
+                        {product.specifications[2].specs[1].val[0]}
+                      </Text>
                     </Row>
                     <Spacer y={1} />
-
                     <hr />
-
-                    <AddCartProduct product={product} />
                   </Grid>
                 </Row>
               </Card.Body>

@@ -1,7 +1,7 @@
 import Swal from "sweetalert2";
 
 export const getProducts = async () => {
-  const url = "https://2gm2eu9uuw.us-east-1.awsapprunner.com/api/product";
+  const url = "https://phone-specs-api.azharimm.dev/brands";
   const response = await fetch(url);
   const dataApi = await response.json();
 

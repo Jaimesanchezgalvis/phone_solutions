@@ -37,18 +37,11 @@ export const AddCartProduct = ({ product }) => {
       colorCode: checkedColor,
       storageCode: checkedStorage,
     };
-
-    if (checkedColor === "") {
+    if (checkedColor === "" || checkedStorage === "") {
       Swal.fire({
         icon: "error",
         title: "Oops...",
-        text: "Please select the color!",
-      });
-    } else if (checkedStorage === "") {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Please select a storage!",
+        text: "Please select the color and storage!",
       });
     } else {
       addProductCart(body).then((data) => {
